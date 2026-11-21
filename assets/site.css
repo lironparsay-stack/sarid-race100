@@ -280,6 +280,12 @@ img { max-width: 100%; }
 .nav-btn:hover:not(:disabled) { background: #fff; color: #1F2540; }
 .nav-btn:disabled { opacity: .3; cursor: not-allowed; }
 .modal-pos { color: var(--text-faint); font-size: 16px; direction: ltr; unicode-bidi: isolate; }
+/* Full-screen button: phones / touch screens only (Drive's embedded player dims the picture there) */
+.fs-btn { display: none; background: #fff; color: #1F2540; border-color: #fff; font-weight: 600; }
+@media (max-width: 767px), (pointer: coarse) {
+  .fs-btn { display: inline-flex; align-items: center; gap: 6px; }
+  .modal-pos { display: none; }
+}
 
 /* ---------- Responsive ---------- */
 @media (max-width: 991px) {

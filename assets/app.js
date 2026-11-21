@@ -223,6 +223,7 @@
   var btnPrev = document.getElementById('player-prev');
   var btnNext = document.getElementById('player-next');
   var btnClose = document.getElementById('player-close');
+  var btnFs = document.getElementById('player-fs');
   var current = { list: [], index: -1, opener: null };
 
   function embedUrl(item) {
@@ -292,6 +293,19 @@
     modal.querySelectorAll('[data-close]').forEach(function (n) { n.addEventListener('click', closePlayer); });
     btnPrev.addEventListener('click', function () { go(-1); });
     btnNext.addEventListener('click', function () { go(1); });
+    btnFs.addEventListener('click', function () {
+      // Full screen on the player; where the browser can't (e.g. iPhone), open the video in Drive/YouTube instead.
+      var fn = frame.requestFullscreen || frame.webkitRequestFullscreen;
+      var openExternal = function () { window.open(mExt.href, '_blank', 'noopener'); };
+      if (!fn) { openExternal(); return; }
+      try {
+        var r = fn.call(frame);
+        var lock = function () {
+          try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function () {}); } catch (e) {}
+        };
+        if (r && r.then) r.then(lock, openExternal); else lock();
+      } catch (e) { openExternal(); }
+    });
 
     document.addEventListener('keydown', function (e) {
       if (modal.hidden) return;
