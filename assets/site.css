@@ -16,7 +16,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); }
+html { background-color: #0B0D17; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 8px); }
 body {
   margin: 0;
   min-height: 100vh;
@@ -243,6 +243,8 @@ img { max-width: 100%; }
 }
 .site-footer p { margin: 0; }
 .footer-title { color: var(--text); font-weight: 600; font-size: 18px; }
+.site-footer p { max-width: 900px; margin-inline: auto; }
+.footer-thanks { margin-top: 6px !important; }
 
 /* ---------- Player modal (spec §3.1) ---------- */
 .modal { position: fixed; inset: 0; z-index: 60; display: flex; align-items: center; justify-content: center; padding: 24px; overflow-y: auto; }
