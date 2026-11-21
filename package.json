@@ -1,0 +1,13 @@
+{
+  "name": "race100-site",
+  "private": true,
+  "description": "אתר הצפייה של המירוץ ל-100, קיבוץ שריד",
+  "scripts": {
+    "build": "node scripts/build-data.js",
+    "thumbs": "node scripts/make-thumbs.js",
+    "update": "node scripts/make-thumbs.js && node scripts/build-data.js"
+  },
+  "dependencies": {
+    "xlsx": "0.18.5"
+  }
+}

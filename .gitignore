@@ -1,0 +1,11 @@
+node_modules/
+.DS_Store
+Thumbs.db
+
+# קבצים פרטיים שנשארים רק במחשב
+race100-videos.xlsx
+backup/
+race100-design-spec.md
+claude-code-prompt.md
+2026-Logo-race-to-100.webp
+/hero.jpg

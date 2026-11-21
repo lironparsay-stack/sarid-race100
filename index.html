@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>המירוץ ל-100 · קיבוץ שריד</title>
+  <!-- noindex: לא להציג במנועי חיפוש עד ההשקה. להסרה כשמשיקים. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="כל סרטוני המירוץ ל-100, מירוץ חוצה קיבוץ לכבוד מאה שנה לקיבוץ שריד.">
+  <link rel="icon" href="assets/logo.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    if (window.tailwind) tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Rubik', 'system-ui', 'sans-serif'] },
+          colors: { edge: '#0B0D17', center: '#1F2540', raceYellow: '#FFC93C', raceRed: '#FF4B3E', raceTeal: '#2EC4B6' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body class="font-sans text-white">
+  <a href="#main" class="skip-link">דילוג לתוכן</a>
+
+  <!-- 1. Header -->
+  <header class="site-header" id="top">
+    <a href="#part-a" class="brand" aria-label="המירוץ ל-100, לראש העמוד">
+      <img src="assets/logo.webp" alt="לוגו המירוץ ל-100" width="56" height="58">
+    </a>
+    <nav aria-label="ניווט ראשי" class="site-nav">
+      <a href="#part-a" data-tab-link="part-a">חלק א'</a>
+      <a href="#part-b" data-tab-link="part-b">חלק ב'</a>
+      <a href="#pairs" data-tab-link="pairs">הזוגות</a>
+      <a href="#auditions" data-tab-link="auditions">האודישנים</a>
+    </nav>
+  </header>
+
+  <!-- 2. Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-bg" id="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1 id="hero-title" class="sr-only">המירוץ ל-100</h1>
+      <img class="hero-logo" src="assets/logo.webp" alt="המירוץ ל-100, קיבוץ שריד" width="260" height="271">
+      <p class="hero-desc">
+        לכבוד מאה שנה לקיבוץ שריד יצאו הצוותים למירוץ חוצה קיבוץ: מהזינוק, דרך הרפת, חדר האוכל, הגורן וקיר הטיפוס, ועד שטיח הסיום. 12 משימות בשני חלקים, שמחברות בין ההיסטוריה של הקיבוץ להווה שלו, עם הרבה צחוק, זיעה ורוח צוות. כאן אפשר לצפות בכל רגעי המירוץ.
+      </p>
+      <button type="button" class="cta" id="cta-start">
+        <span aria-hidden="true">▶</span> צפו מההתחלה
+      </button>
+      <p class="cta-note" id="cta-note" hidden>הסרטונים יעלו בקרוב</p>
+    </div>
+  </section>
+
+  <!-- 3. Tabs + grids -->
+  <main id="main" class="content">
+    <div class="tabs-wrap">
+      <div role="tablist" aria-label="קטגוריות סרטונים" class="tablist" id="tablist">
+        <button role="tab" id="tab-part-a" aria-controls="panel-part-a" data-tab="part-a">חלק א'</button>
+        <button role="tab" id="tab-part-b" aria-controls="panel-part-b" data-tab="part-b">חלק ב'</button>
+        <button role="tab" id="tab-pairs" aria-controls="panel-pairs" data-tab="pairs">הזוגות</button>
+        <button role="tab" id="tab-auditions" aria-controls="panel-auditions" data-tab="auditions">האודישנים</button>
+      </div>
+    </div>
+
+    <section role="tabpanel" id="panel-part-a" aria-labelledby="tab-part-a" class="panel" tabindex="0">
+      <ul class="grid-cards" data-list="partA"></ul>
+    </section>
+    <section role="tabpanel" id="panel-part-b" aria-labelledby="tab-part-b" class="panel" tabindex="0" hidden>
+      <ul class="grid-cards" data-list="partB"></ul>
+    </section>
+    <section role="tabpanel" id="panel-pairs" aria-labelledby="tab-pairs" class="panel" tabindex="0" hidden>
+      <ul class="grid-cards" data-list="pairs"></ul>
+    </section>
+    <section role="tabpanel" id="panel-auditions" aria-labelledby="tab-auditions" class="panel" tabindex="0" hidden>
+      <ul class="grid-cards" data-list="auditions"></ul>
+    </section>
+  </main>
+
+  <!-- 7. Footer -->
+  <footer class="site-footer">
+    <p class="footer-title">המירוץ ל-100 · קיבוץ שריד · 9.5.2026</p>
+    <p>הפקה: [שמות] · צילום: [שמות] · עריכת וידאו: [שמות] · תודה מיוחדת: [שמות]</p>
+    <p>חלק מאירועי שנת המאה של קיבוץ שריד</p>
+  </footer>
+
+  <!-- 5. Player modal -->
+  <div class="modal" id="player" role="dialog" aria-modal="true" aria-labelledby="player-title" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <div class="modal-head">
+        <div class="modal-info">
+          <p class="modal-meta" id="player-meta"></p>
+          <h2 class="modal-title" id="player-title"></h2>
+          <p class="modal-desc" id="player-desc"></p>
+          <a class="modal-ext" id="player-ext" href="#" target="_blank" rel="noopener">פתיחה בחלון חדש <span aria-hidden="true">↗</span></a>
+        </div>
+        <button type="button" class="icon-btn" id="player-close" aria-label="סגירת הנגן" data-close>✕</button>
+      </div>
+      <div class="video-box">
+        <iframe id="player-frame" title="נגן וידאו" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+      <div class="modal-nav">
+        <button type="button" class="nav-btn" id="player-prev"><span aria-hidden="true">→</span> הקודם</button>
+        <span class="modal-pos" id="player-pos" aria-live="polite"></span>
+        <button type="button" class="nav-btn" id="player-next">הבא <span aria-hidden="true">←</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>
