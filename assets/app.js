@@ -127,13 +127,14 @@
   // ---------- Hero ----------
   function setupHero() {
     var bg = document.getElementById('hero-bg');
+    // Hero photo only when assets/hero.jpg exists; otherwise a compact gradient hero.
     var src = DATA.hero;
-    if (!src) {
-      var withThumb = lists.partA.concat(lists.partB).filter(function (i) { return i.thumb; })[0];
-      src = withThumb ? withThumb.thumb : null;
+    if (src) {
+      bg.style.backgroundImage = 'url("' + encodeURI(src) + '")';
+    } else {
+      bg.classList.add('is-fallback');
+      bg.parentNode.classList.add('hero--compact');
     }
-    if (src) bg.style.backgroundImage = 'url("' + encodeURI(src) + '")';
-    else bg.classList.add('is-fallback');
 
     var cta = document.getElementById('cta-start');
     var note = document.getElementById('cta-note');

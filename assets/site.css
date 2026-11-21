@@ -116,6 +116,20 @@ img { max-width: 100%; }
 .cta span { font-size: .8em; }
 .cta-note { margin: -8px 0 0; color: var(--text-dim); font-size: 16px; }
 
+/* Compact hero (no photo): gradient band, logo beside the text */
+.hero--compact { min-height: 0; }
+.hero--compact::after { display: none; }
+.hero--compact .hero-content {
+  width: auto; max-width: 980px;
+  padding: 40px 0;
+  display: grid; grid-template-columns: auto 1fr; align-items: center;
+  column-gap: 40px; row-gap: 16px;
+}
+.hero--compact .hero-logo { width: 170px; grid-row: span 3; }
+.hero--compact .hero-desc { font-size: 19px; max-width: 640px; }
+.hero--compact .cta { justify-self: start; }
+.hero--compact .cta-note { margin: 0; }
+
 /* ---------- Tabs ---------- */
 .content { padding: 0 var(--pad) 96px; }
 .tabs-wrap {
@@ -298,6 +312,13 @@ img { max-width: 100%; }
   .modal-title { font-size: 21px; }
   .modal-meta, .modal-desc { font-size: 15px; }
   .nav-btn { font-size: 16px; padding: 0 16px; }
+}
+@media (max-width: 767px) {
+  .hero--compact .hero-content { padding: 24px 0; column-gap: 16px; row-gap: 12px; align-items: start; }
+  .hero--compact .hero-logo { width: 84px; grid-row: auto; }
+  .hero--compact .hero-desc { font-size: 15px; grid-column: 1 / -1; }
+  .hero--compact .cta { grid-column: 1 / -1; }
+  .hero--compact .cta-note { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
