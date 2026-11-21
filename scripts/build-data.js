@@ -54,6 +54,7 @@ function main() {
       desc: v.desc,
       duration: v.duration,
       driveId: v.driveId || null,
+      youtubeId: v.youtubeId || null,
       thumb: findThumb(v),
     };
     if (!v.part) warnings.push(`סרטון ${v.num}: עמודת "חלק" ריקה או לא מזוהה, שויך לחלק א'`);
@@ -79,11 +80,12 @@ function main() {
   fs.writeFileSync(OUT_FILE, js, 'utf8');
 
   const all = [...out.A, ...out.B, ...out.auditions];
-  const withId = all.filter(v => v.driveId).length;
+  const withId = all.filter(v => v.driveId || v.youtubeId).length;
+  const withYt = all.filter(v => v.youtubeId).length;
   const withThumb = all.filter(v => v.thumb).length;
   console.log(`נכתב data.js:`);
   console.log(`  חלק א': ${out.A.length} סרטונים · חלק ב': ${out.B.length} · אודישנים: ${out.auditions.length}`);
-  console.log(`  עם קישור דרייב: ${withId}/${all.length} · עם תמונה ממוזערת: ${withThumb}/${all.length}`);
+  console.log(`  עם קישור לצפייה: ${withId}/${all.length} (מתוכם יוטיוב: ${withYt}) · עם תמונה ממוזערת: ${withThumb}/${all.length}`);
   console.log(`  זוגות: ${pairs.length} · תמונת רקע: ${hero || 'אין (ישמש גרדיאנט / תמונה ממוזערת)'}`);
   for (const w of warnings) console.warn('  אזהרה: ' + w);
 }

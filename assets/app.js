@@ -8,15 +8,18 @@
 
   // ---------- Normalize data into card items ----------
   function videoItem(v) {
+    // YouTube link wins over Drive when both exist.
+    var yt = v.youtubeId || null;
     return {
-      kind: 'drive',
-      id: v.driveId || null,
+      kind: yt ? 'youtube' : 'drive',
+      race: true,
+      id: yt || v.driveId || null,
       num: v.num,
       title: v.title,
       meta: v.meta || '',
       desc: v.desc || '',
       duration: v.duration || '',
-      thumb: v.thumb || null,
+      thumb: v.thumb || (yt ? 'https://img.youtube.com/vi/' + encodeURIComponent(yt) + '/hqdefault.jpg' : null),
     };
   }
   function pairItem(p) {
@@ -84,10 +87,10 @@
       img.alt = '';
       img.loading = 'lazy';
       img.decoding = 'async';
-      img.addEventListener('error', function () { img.replaceWith(placeholder(item.kind === 'drive' ? item.num : null)); });
+      img.addEventListener('error', function () { img.replaceWith(placeholder(item.race ? item.num : null)); });
       thumb.appendChild(img);
     } else {
-      thumb.appendChild(placeholder(item.kind === 'drive' ? item.num : null));
+      thumb.appendChild(placeholder(item.race ? item.num : null));
     }
     if (item.duration && playable) {
       var b = el('span', 'badge', item.duration);
@@ -245,6 +248,7 @@
     mDesc.hidden = !item.desc;
     frame.title = 'נגן וידאו: ' + item.title;
     frame.src = embedUrl(item);
+    frame.parentNode.classList.toggle('is-drive', item.kind === 'drive');
     btnPrev.disabled = index <= 0;
     btnNext.disabled = index >= current.list.length - 1;
     mPos.textContent = (index + 1) + ' / ' + current.list.length;

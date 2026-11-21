@@ -1,7 +1,7 @@
 // קובץ זה נוצר אוטומטית על ידי scripts/build-data.js. אל תערכו אותו ידנית.
 // לעדכון: ערכו את race100-videos.xlsx או data/pairs.json והריצו: npm run update
 window.RACE_DATA = {
-  "generatedAt": "2026-11-21T18:59:37.080Z",
+  "generatedAt": "2026-11-21T19:55:07.857Z",
   "hero": null,
   "partA": [
     {
@@ -11,6 +11,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1tXOVBOachWBAv2fwoPql2GUBzJDH1U6h",
+      "youtubeId": null,
       "thumb": "assets/thumbs/01.jpg"
     },
     {
@@ -20,6 +21,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1olVGrzgCOoaNtG3rsD5f6WNdy8NkYYXn",
+      "youtubeId": null,
       "thumb": "assets/thumbs/02.jpg"
     },
     {
@@ -29,6 +31,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1M_KGA-lg0QZP-AveBCmaezMZdT9LfOrd",
+      "youtubeId": null,
       "thumb": "assets/thumbs/03.jpg"
     },
     {
@@ -38,6 +41,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1fmtxkkP-bgKEQVvdCyPxrgmbQmfQzUrF",
+      "youtubeId": null,
       "thumb": "assets/thumbs/04.jpg"
     },
     {
@@ -47,6 +51,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1sFtbrFop4NTG4EyhzbO2Hd82oMNrVIo4",
+      "youtubeId": null,
       "thumb": "assets/thumbs/05.jpg"
     },
     {
@@ -56,6 +61,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1PHKLSQnHuhdUI1cmIFRMEpDvsbUPVB97",
+      "youtubeId": null,
       "thumb": "assets/thumbs/06.jpg"
     },
     {
@@ -65,6 +71,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1fCimBj27HJtG3MZuov-GSBzAPoD7_tcl",
+      "youtubeId": null,
       "thumb": "assets/thumbs/07.jpg"
     },
     {
@@ -74,6 +81,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1OWrVjEKtpf_Kh4TXAB8qf2gZ7Fu6ACTG",
+      "youtubeId": null,
       "thumb": "assets/thumbs/08.jpg"
     },
     {
@@ -83,6 +91,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1oygljGkvpEx5Ea2tiaQTKXX1hmrB7zCz",
+      "youtubeId": null,
       "thumb": "assets/thumbs/09.jpg"
     },
     {
@@ -92,6 +101,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "13GZpu1Lq8OqRwTLKeDKT32rPll2j2D7v",
+      "youtubeId": null,
       "thumb": "assets/thumbs/10.jpg"
     }
   ],
@@ -103,6 +113,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1HZkYaulY_f6FQq7KkMEfaQAeiKmwetGZ",
+      "youtubeId": null,
       "thumb": "assets/thumbs/11.jpg"
     },
     {
@@ -112,6 +123,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1kie1LzxqJv76blppyz7uxX4O1vTSkaeq",
+      "youtubeId": null,
       "thumb": "assets/thumbs/12.jpg"
     },
     {
@@ -121,6 +133,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1fYCkvKUjSajuYUox_g0z8x5dk-MPfoNA",
+      "youtubeId": null,
       "thumb": "assets/thumbs/13.jpg"
     },
     {
@@ -130,6 +143,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "12tN6uo5Kkff0ZjeQP54-rs5E5xzJuhm7",
+      "youtubeId": null,
       "thumb": "assets/thumbs/14.jpg"
     },
     {
@@ -139,6 +153,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1YlcAiyfH6Qd8n67bIKVANDvQDgMo6i4I",
+      "youtubeId": null,
       "thumb": "assets/thumbs/15.jpg"
     },
     {
@@ -148,6 +163,7 @@ window.RACE_DATA = {
       "desc": "",
       "duration": "",
       "driveId": "1DqijV-lpIpBeYScjwlPPKKU5O7Vtv6DW",
+      "youtubeId": null,
       "thumb": "assets/thumbs/16.jpg"
     }
   ],

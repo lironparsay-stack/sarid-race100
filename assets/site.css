@@ -317,7 +317,7 @@ img { max-width: 100%; }
   .card-title { font-size: 18px; }
   .modal { padding: 12px; }
   /* Drive's phone player adds a top bar inside the frame; a taller box keeps the video and its controls centred */
-  .video-box { aspect-ratio: 4 / 3; }
+  .video-box.is-drive { aspect-ratio: 4 / 3; }
   .modal-title { font-size: 21px; }
   .modal-meta, .modal-desc { font-size: 15px; }
   .nav-btn { font-size: 16px; padding: 0 16px; }

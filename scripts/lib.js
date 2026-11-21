@@ -19,6 +19,7 @@ const COLUMNS = {
   desc: 'תיאור קצר',
   duration: 'משך',
   driveLink: 'קישור דרייב',
+  youtubeLink: 'קישור יוטיוב',
   thumb: 'קובץ תמונה ממוזערת',
   notes: 'הערות',
 };
@@ -37,6 +38,18 @@ function extractDriveId(link) {
   m = s.match(/[?&]id=([A-Za-z0-9_-]{10,})/);             // ...open?id=ID / uc?id=ID
   if (m) return m[1];
   if (/^[A-Za-z0-9_-]{20,}$/.test(s)) return s;           // bare ID pasted directly
+  return '';
+}
+
+// Accepts youtube.com/watch?v=ID, youtu.be/ID, /shorts/ID, /embed/ID, /live/ID, or a bare 11-char ID.
+function extractYouTubeId(link) {
+  const s = clean(link);
+  if (!s) return '';
+  let m = s.match(/[?&]v=([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  m = s.match(/(?:youtu\.be\/|\/shorts\/|\/embed\/|\/live\/)([A-Za-z0-9_-]{11})/);
+  if (m) return m[1];
+  if (/^[A-Za-z0-9_-]{11}$/.test(s)) return s;
   return '';
 }
 
@@ -103,6 +116,7 @@ function readVideos() {
       desc: clean(get(r, 'desc')),
       duration: normalizeDuration(get(r, 'duration')),
       driveId: extractDriveId(get(r, 'driveLink')),
+      youtubeId: extractYouTubeId(get(r, 'youtubeLink')),
       thumbHint: clean(get(r, 'thumb')),
     });
   }
@@ -110,4 +124,4 @@ function readVideos() {
   return videos;
 }
 
-module.exports = { ROOT, XLSX_FILE, THUMBS_DIR, readVideos, extractDriveId, pad2, clean };
+module.exports = { ROOT, XLSX_FILE, THUMBS_DIR, readVideos, extractDriveId, extractYouTubeId, pad2, clean };

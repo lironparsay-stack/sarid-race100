@@ -34,6 +34,7 @@ async function main() {
 
   for (const v of videos) {
     if (hasLocalThumb(v.key)) { kept++; continue; }
+    if (v.youtubeId) { skipped++; continue; } // the site uses YouTube's own thumbnail
     if (!v.driveId) { skipped++; continue; }
     try {
       const r = await download(v.driveId);
