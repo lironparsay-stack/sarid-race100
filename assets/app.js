@@ -218,7 +218,6 @@
   var mTitle = document.getElementById('player-title');
   var mMeta = document.getElementById('player-meta');
   var mDesc = document.getElementById('player-desc');
-  var mExt = document.getElementById('player-ext');
   var mPos = document.getElementById('player-pos');
   var btnPrev = document.getElementById('player-prev');
   var btnNext = document.getElementById('player-next');
@@ -230,11 +229,6 @@
     var id = encodeURIComponent(item.id);
     if (item.kind === 'youtube') return 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
     return 'https://drive.google.com/file/d/' + id + '/preview';
-  }
-  function externalUrl(item) {
-    var id = encodeURIComponent(item.id);
-    if (item.kind === 'youtube') return 'https://www.youtube.com/watch?v=' + id;
-    return 'https://drive.google.com/file/d/' + id + '/view';
   }
 
   function show(index) {
@@ -249,8 +243,6 @@
     mTitle.textContent = item.title;
     mDesc.textContent = item.desc;
     mDesc.hidden = !item.desc;
-    mExt.href = externalUrl(item);
-    mExt.firstChild.textContent = item.kind === 'youtube' ? 'פתיחה ב-YouTube ' : 'פתיחה ב-Google Drive ';
     frame.title = 'נגן וידאו: ' + item.title;
     frame.src = embedUrl(item);
     btnPrev.disabled = index <= 0;
@@ -292,19 +284,20 @@
   function setupPlayer() {
     modal.querySelectorAll('[data-close]').forEach(function (n) { n.addEventListener('click', closePlayer); });
     btnPrev.addEventListener('click', function () { go(-1); });
+    // Hide the full-screen button where the browser can't do it (e.g. iPhone Safari).
+    if (!(document.fullscreenEnabled || document.webkitFullscreenEnabled)) btnFs.hidden = true;
     btnNext.addEventListener('click', function () { go(1); });
     btnFs.addEventListener('click', function () {
-      // Full screen on the player; where the browser can't (e.g. iPhone), open the video in Drive/YouTube instead.
+      // Full screen on the player (and landscape where the phone allows it).
       var fn = frame.requestFullscreen || frame.webkitRequestFullscreen;
-      var openExternal = function () { window.open(mExt.href, '_blank', 'noopener'); };
-      if (!fn) { openExternal(); return; }
+      if (!fn) return;
+      var lock = function () {
+        try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function () {}); } catch (e) {}
+      };
       try {
         var r = fn.call(frame);
-        var lock = function () {
-          try { if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(function () {}); } catch (e) {}
-        };
-        if (r && r.then) r.then(lock, openExternal); else lock();
-      } catch (e) { openExternal(); }
+        if (r && r.then) r.then(lock, function () {}); else lock();
+      } catch (e) {}
     });
 
     document.addEventListener('keydown', function (e) {
