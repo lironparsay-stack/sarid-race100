@@ -1,7 +1,7 @@
 // קובץ זה נוצר אוטומטית על ידי scripts/build-data.js. אל תערכו אותו ידנית.
 // לעדכון: ערכו את race100-videos.xlsx או data/pairs.json והריצו: npm run update
 window.RACE_DATA = {
-  "generatedAt": "2026-11-21T14:00:55.039Z",
+  "generatedAt": "2026-11-21T18:59:37.080Z",
   "hero": null,
   "partA": [
     {
@@ -60,21 +60,21 @@ window.RACE_DATA = {
     },
     {
       "num": 7,
-      "title": "משימת צומת - תרבות - ריקוד שבועות",
+      "title": "משימת צומת - תרבות - שיר הגורן",
       "meta": "משימה 6",
       "desc": "",
       "duration": "",
-      "driveId": "1OWrVjEKtpf_Kh4TXAB8qf2gZ7Fu6ACTG",
+      "driveId": "1fCimBj27HJtG3MZuov-GSBzAPoD7_tcl",
       "thumb": "assets/thumbs/07.jpg"
     },
     {
       "num": 8,
-      "title": "משימת צומת - תרבות - שיר הגורן",
+      "title": "משימת צומת - תרבות - ריקוד שבועות",
       "meta": "משימה 7",
       "desc": "",
       "duration": "",
-      "driveId": "1fCimBj27HJtG3MZuov-GSBzAPoD7_tcl",
-      "thumb": null
+      "driveId": "1OWrVjEKtpf_Kh4TXAB8qf2gZ7Fu6ACTG",
+      "thumb": "assets/thumbs/08.jpg"
     },
     {
       "num": 9,
